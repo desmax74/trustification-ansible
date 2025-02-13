@@ -15,3 +15,10 @@
 
 - name: Migrate db
   ansible.builtin.include_tasks: infra/migrate-db.yml
+
+- name: Create configmap auth for server
+  ansible.builtin.include_tasks: infra/component_auth.yml
+  vars:
+    component:
+      name: "server"
+      type: "api"
